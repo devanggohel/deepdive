@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/jquery-1.12.4.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/backbone.js"></script>
+    <script>
+        var Hero = Backbone.Model.extend({
+            defaults : {
+                title : "Default Title",
+                city : "Default City"
+            }
+        });
+
+        var hero1 = new Hero();
+        console.log(hero1.get("title"));
+        console.log(hero1.get("city"));
+        hero1.set("city", "Bangalore");
+        console.log(hero1.get("city"));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

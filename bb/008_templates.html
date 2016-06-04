@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Introduction to Backbone</title>
+	<style>
+		.orangeBox{
+			background-color: orange;
+			margin: 10px;
+			width:200px;
+			float: left;
+		}
+		.orangeBox h1, h2{
+			margin: 0px;
+			text-align: center;
+			font-family: Arial;
+		}
+		.orangeBox img{
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			display: block;
+			padding: 5px;
+		}
+		.orangeBox textarea{
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 100%;
+		}
+	</style>
+	<script src="lib/jquery-1.12.1.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var MainModel = Backbone.Model.extend({});
+		var MainView = Backbone.View.extend({
+			tagName:"li",
+			render :function(){
+				// this.$el.html(this.model.get("uName"));
+				this.$el.html(this.template(this.model.toJSON()))
+				return this
+			},
+			initialize : function(){
+				this.render();
+			},
+			template : _.template("<%= uName %> has employed <%= headCount %> pax in  <%= uCity %> ")
+		})
+		//=============================================================
+		var subModel1 = new MainModel({
+			uName:"Branch One",
+			headCount:100,
+			uCity:"Bangalore"
+		});
+		var subModel2 = new MainModel({
+			uName:"Branch Two",
+			headCount:150,
+			uCity:"Bangalore"
+		});
+		//=============================================================
+		var subView1 = new MainView({
+			model:subModel1
+		});
+		var subView2 = new MainView({
+			model:subModel2
+		});
+		//=============================================================
+		$(function(){
+			$("#uDisplay").append(subView1.el)
+			$("#uDisplay").append(subView2.el)
+		})
+	</script>
+</head>
+<body>
+	<ul id="uDisplay"></ul>
+</body>
+</html>

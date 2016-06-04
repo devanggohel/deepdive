@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Collections</title>
+	<style>
+        .boxer{
+            width: 200px;
+            height: 350px;
+            background-color: #333;
+            padding: 5px;
+            box-sizing: border-box;
+            float: left;
+            margin: 10px;
+        }
+        .boxer h1{
+            background-color: #E9EACC;
+            color: #333;
+            margin: 0px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            vertical-align: middle;
+            font-family: Arial;
+        }
+        .boxer h2{
+            background-color: #575934;
+            color: #E9EACC;
+            margin: 0px;
+            height: 30px;
+            font-size : 16px;
+            text-align: center;
+            line-height: 30px;
+            vertical-align: middle;
+            font-family: Arial;
+        }
+        .boxer img{
+            display: block;
+            max-width: 100%;
+        }
+    </style>
+    <script src="lib/jquery-1.12.4.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/backbone.js"></script>
+    <script>
+    	var Hero = Backbone.Model.extend({});
+    	var HeroView = Backbone.View.extend({
+    		render : function(){
+    			this.$el.html(this.template(this.model.toJSON()))
+    			return this
+    		},
+    		template : _.template("<div class='boxer'><h1> <%= title %> </h1><h2><span><%= fName %></span> <span><%= lName %></span></h2><img src='<%= photo %>' /></div>")
+    	});
+    	
+    	var hero = new Hero();
+    	hero.set({
+    		title : "Batman",
+    		fName : "Bruce",
+    		lName : "Wayne",
+    		photo : "images/batman.jpg"
+    	});
+    	
+    	var heroView = new HeroView({
+    		model : hero
+    	});
+    	/*
+    	 */
+    	window.onload = function(){
+    		document.getElementsByTagName("body")[0].appendChild(heroView.render().el);
+    	};
+    </script>
+</head>
+<body>
+	
+</body>
+</html>

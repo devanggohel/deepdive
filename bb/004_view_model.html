@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Introduction to Backbone</title>
+	<script src="lib/jquery-1.12.4.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		$(function(){
+			var MyModel = Backbone.Model.extend({});
+			var MyView = Backbone.View.extend({
+				initialize : function (){
+					console.log("an instance was created");
+				},
+				render : function(){
+					console.log("rendered");
+					// this.el.innerHTML = this.model.get("data");
+					this.$el.html(this.model.get("data"));
+					return this;
+				}
+			});
+			
+			var mymodel = new MyModel({
+				data : "hello"
+			});
+			
+			var myview = new MyView({
+				model : mymodel
+			});
+			
+			$("button").on("click", function(){
+				mymodel.set("data", Math.round(Math.random()*1000));
+				$("body").append(myview.render().el);
+				console.log(myview)
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<button>Add View</button>
+</body>
+</html>

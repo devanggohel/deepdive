@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Introduction to Backbone</title>
+	<script src="lib/jquery-1.12.4.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<!--script>
+		var app = {};
+		app.model = {};
+		app.model.user = ["batman","superman"];
+		
+		app.controller = {};
+		app.controller.sayHello = function(){
+			alert("hello")
+		}
+		app.view = {};
+		app.view.box=document.createElement("div");
+	</script-->
+	<script>
+		$(function(){
+			
+			var Company = Backbone.Model.extend({
+				name : "Spring People",
+				headCount : 100,
+				city : "Bangalore",
+				getEmployeeCount : function(){
+					console.log(this.headCount);
+				},
+				setEmployeeCount : function(){
+					this.headCount+=1;
+				}
+			});
+			
+			var comp = new Company();
+			
+			console.log(comp.name);
+			console.log(comp.city);
+			comp.getEmployeeCount();
+			
+			$("button").on("click",function(){
+				comp.setEmployeeCount();
+				comp.getEmployeeCount();
+			})
+			
+			console.log(comp);
+		});
+	</script>
+</head>
+<body>
+	<button>Add Employee</button>
+</body>
+</html>

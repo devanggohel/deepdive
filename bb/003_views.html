@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Introduction to Backbone</title>
+	<script src="lib/jquery-1.12.4.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		$(function(){
+			var MyView = Backbone.View.extend({
+				initialize : function(){
+					console.log("firstView is now ready")
+				},
+				render : function(){
+					this.el.innerHTML = "Hello There"
+					return this;
+				}
+			});
+			
+			var firstView = new MyView({
+				tagName : "li"
+			});
+			
+			
+			$("button").on("click", function(){
+				$("body").append(firstView.render().el);
+			})
+		});
+	</script>
+</head>
+<body>
+	<button>Add View</button>
+</body>
+</html>

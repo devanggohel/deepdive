@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Introduction to Backbone</title>
+	<style>
+		.orangeBox{
+			background-color: orange;
+			margin: 10px;
+			width:200px;
+			float: left;
+		}
+		.orangeBox h1, h2{
+			margin: 0px;
+			text-align: center;
+			font-family: Arial;
+		}
+		.orangeBox img{
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			display: block;
+			padding: 5px;
+		}
+		.orangeBox textarea{
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 100%;
+		}
+	</style>
+	<script type="mycompany/template" id="temp">
+		<div>
+			<h1> <%= hName %> </h1>
+			<h2> <%= hPhone %></h2>
+			<img src='<%= hPhoto %>' width='100%'/>
+			<textarea> <%= hDetail %> </textarea> 
+			<button class='btn'> remove </button> 
+		</div>
+	</script>
+	<script src="lib/jquery-1.12.4.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+		<script>
+		var MainModel = Backbone.Model.extend({});
+		var batModel = new MainModel();
+		batModel.set({
+			hName:"Batman",
+			hPhone:123456789,
+			hDetail:"Batman details comes here...",
+			hPhoto:"images/batman.jpg"
+		});
+		var superModel = new MainModel();
+		superModel.set({
+			hName:"Superman",
+			hPhone:345678912,
+			hDetail:"Superman details comes here...",
+			hPhoto:"images/superman.jpg"
+		});
+		var MainView = Backbone.View.extend({
+			className : "orangeBox",
+			render : function(){
+					var elms = this.template(this.model.toJSON());
+					this.$el.html(elms);
+					return this
+				},
+			template : _.template($("#temp").html()),
+			events : {
+				"click .btn" : function(){
+					this.remove();
+				}
+			}
+		})
+		
+		var batView = new MainView({
+			model : batModel
+		})
+		var superView = new MainView({
+			model : superModel
+		})
+		
+		$(function(){
+			$("body").append(batView.render().el);
+			$("body").append(superView.render().el);
+		})
+	</script>
+</head>
+<body>
+	
+	
+</body>
+</html>

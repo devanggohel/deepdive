@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Introduction to Backbone</title>
+	<script src="lib/jquery-1.12.4.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		$(function(){
+			
+			var Company = Backbone.Model.extend({});
+			
+			var comp = new Company({
+				name : "SD Corner",
+				headCount : 100,
+				city : "Bangalore"
+			});
+			
+			comp.on({
+				"change:headCount" : function(){
+					console.log("headcount changed");
+				},
+				"change:city" : function(){
+					console.log("city changed")
+				}				
+			})
+			
+			$("button:nth-child(1)").on("click",function(){
+				var val = comp.get("headCount");
+				comp.set("headCount", val+=1);	
+				console.log(comp.get("headCount"))	;		
+			})
+			$("button:nth-child(2)").on("click",function(){
+				comp.set({city : "Mumbai"});
+			})
+		});
+	</script>
+</head>
+<body>
+	<button>Add Employee</button>
+	<button>Change City</button>
+</body>
+</html>
