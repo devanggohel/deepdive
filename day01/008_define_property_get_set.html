@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+
+        var company = Object.create(null);
+            Object.defineProperty(company, "title", {
+                value : "GE"
+            })
+        var obj = Object.create(company);
+           // console.log(obj.title);
+        console.log(obj.title);
+
+         */
+
+        var obj = Object.create(null);
+
+        Object.defineProperty(obj, "title", {
+            value : "Deadpool",
+            writable : true
+        });
+
+        Object.defineProperty(obj, "getTitle", {
+            set : function(val){
+                this.title = val
+            },
+            get : function(){
+                return this.title;
+            }
+        });
+
+       //  console.log(obj.getTitle);
+        obj.getTitle = "Phantom";
+
+        console.log(obj.getTitle)
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

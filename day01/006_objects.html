@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var obj1 = new Object();
+            obj1.title = "Batman";
+            obj1.title = "Rajani";
+
+        var obj2 = {};
+            obj2.title = "Superman";
+            obj2.title = "Rajani";
+
+
+        var obj3 = Object.create(null);
+       Object.defineProperty(obj3,"title",{
+           value : "Ironman",
+           writable  : true,
+           configurable : true
+       });
+        Object.defineProperty(obj3,"title",{
+           value : "Rajani",
+           writable : false,
+           configurable : false
+       });
+       // obj3.title = "Phantom";
+        Object.defineProperty(obj3,"title", {
+            value : "Phantom"
+        })
+
+        for(prop in obj3){
+            console.log(prop);
+        }
+
+        console.log(obj1.title, obj2.title, obj3.title);
+        //=================================
+        console.log(typeof obj1, typeof obj2, typeof obj3);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

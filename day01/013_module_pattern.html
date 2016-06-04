@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var mod = (function(){
+            var _fName = "Bruce";
+            var _lName = "Wayne";
+            var _city = "Gotham";
+            var _power = 7;
+            var message = "I am Batman";
+
+            return {
+                message : message,
+                fullname : function () {
+                    return _fName+" "+_lName;
+                }
+            }
+        }());
+
+        (function(module){
+            module.vehical = "BatMobile";
+            return module;
+        }(mod));
+
+        console.log(mod.msg);
+        console.log(mod.publicity = "Helloo there");
+        console.log(mod.fullname());
+        console.log(mod.vehical);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

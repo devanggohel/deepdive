@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototype Pattern</title>
+    <script>
+        Array.prototype.giveCurrency = function(symbol){
+            for(var i = 0; i < this.length ; i++){
+                this[i] = symbol+" "+this[i];
+            }
+        };
+       var arr = [2,5,3,8,1,9];
+       console.log(arr);
+       arr.giveCurrency("EUR");
+       console.log(arr);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

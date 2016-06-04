@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Closures</title>
+
+    <script>
+
+        var myFun = function(user){
+            var nosecret = "Not a Secret";
+            var user = user;
+
+            return function(msg){
+                return msg+" "+user;
+            }
+        };
+
+        var mf = myFun("Rohit");
+
+        console.log(mf("Hi"));
+        console.log(mf("Hello"));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

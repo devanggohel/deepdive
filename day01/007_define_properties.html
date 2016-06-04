@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Defind Properties</title>
+    <script>
+        var obj = Object.create(null);
+        Object.defineProperties(obj, {
+            title : {
+                value : "Batman",
+                writable : true,
+                enumerable : true,
+            },
+            city : {
+                value : "Gotham",
+                enumerable : true
+            }
+        });
+
+        for(prop in obj){
+            console.log(prop);
+        }
+
+        console.log(obj.title, obj.city);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

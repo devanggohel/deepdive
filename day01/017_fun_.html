@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment</title>
+    <script>
+/*
+
+        var Cart = {
+            costPrice : 100,
+            getProfit : function(){
+                return  this.costPrice*0.2;
+            },
+            getTotal : function() {
+                console.log(this);
+                function caluclateTax(){
+                    console.log(this);
+                    return this.costPrice*0.1;
+                };
+                caluclateTax();
+            }
+        };
+
+        console.log(Cart.getProfit());
+        console.log(Cart.getTotal());
+ */
+var Cart = {
+    costPrice : 100,
+    getProfit : function(){
+        return  this.costPrice*0.2;
+    },
+    getTotal : {
+        gt : function(){
+                console.log(this);
+                function caluclateTax(){
+                    console.log(this);
+                    return this.costPrice*0.1;
+                };
+                caluclateTax()
+            }
+    }
+};
+
+console.log(Cart.getProfit());
+Cart.getTotal.gt();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

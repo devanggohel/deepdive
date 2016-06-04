@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Closures</title>
+
+    <script>
+        var mainFun = function(hero){
+            var userName = hero+" is my fav hero";
+
+            console.log(userName+" from the main fun");
+
+            return function(num){
+                for(var i = 0 ; i < num; i++){
+                    console.log(userName+" "+i+" times");
+                };
+            }
+        };
+        var mf = mainFun("Superman");
+        console.log(mainFun);
+        console.log(mf);
+        function callmf5(){
+            mf(5);
+        }
+        function callmf6() {
+            mf(6);
+        };
+
+        window.onload = function(){
+            document.getElementById("btn1").addEventListener("click",callmf5 )
+            document.getElementById("btn2").addEventListener("click",callmf6 )
+        }
+
+    </script>
+</head>
+<body>
+<button id="btn1">call 5 times</button>
+<button id="btn2">call 6 times</button>
+</body>
+</html>

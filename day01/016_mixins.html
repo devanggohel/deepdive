@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/jquery-1.12.4.js" ></script>
+    <script>
+
+        var Person = function(arg1){
+            this.name = arg1
+        };
+        var Animal = function(arg1){
+            this.name = arg1
+        };
+
+        var move = {
+            run : function(){
+                return this.name + " is running";
+            },
+            walk : function(){
+                return this.name + " is walking";
+            }
+        };
+        var talk = {
+            talk : function(){
+                return this.name+" is talking";
+            },
+            sing : function(){
+                return this.name+" is singing";
+            }
+        };
+        var code = {
+            code : function(){
+                return this.name +" is coding"
+            }
+        };
+
+        jQuery.extend(Person.prototype, move, talk, code );
+        jQuery.extend(Animal.prototype, move, talk );
+
+        var tom = new Person("tom");
+        var tommy = new Animal("tommy");
+
+        console.log(tom.run());
+        console.log(tom.walk());
+        console.log(tom.talk());
+        console.log(tom.sing());
+        console.log(tom.code());
+
+        console.log(tommy.run());
+        console.log(tommy.walk());
+        console.log(tommy.talk());
+        console.log(tommy.sing());
+        console.log(tommy.code());
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

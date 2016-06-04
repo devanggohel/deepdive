@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var title = "Rajani";
+
+        var hero1 = {
+            title : "Batman",
+            init : function(){
+                return this.title;
+            }
+        };
+        var hero2 = {
+           title : "Superman"
+        };
+
+        var h2 = new hero2();
+        console.log(h2.city);
+
+
+        var hero3 = {
+            title : "Ironman"
+        };
+
+        function showTitle(message){
+            console.log(message + " "+ this.title);
+        };
+
+        //================================
+
+       // showTitle.call(hero1, "Hello");
+       // showTitle.apply(hero1);
+
+       // console.log( hero1.init.call(hero2) );
+
+       // showTitle.apply(hero1,["Hi"]);
+
+        showTitle.bind(hero1)("Hi");
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.name = "Batman";
+        var obj = {
+            name : "Superman",
+            init : function(){
+                this.name = "spiderman";
+                console.log(this.name);
+            }
+        };
+        /*
+        function init(){
+          //   this.name = "Vijay";
+            console.log(this.name);
+        };
+
+        init();
+         */
+        obj.init();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

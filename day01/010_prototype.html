@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototype Pattern</title>
+    <script>
+        /*
+        var Hero = function(){
+            var secret = "My Secret";
+            this.title = "Batman"
+        };
+        console.log(typeof Hero);
+
+        Hero.prototype.city = "Gotham";
+        Hero.prototype.city = "Bangalore";
+
+        var hero1 = new Hero();
+        console.log(typeof hero1);
+
+        var hero2 = new Hero();
+            hero1.title = "Superman";
+
+        console.log(hero1.title);
+        console.log(hero2.title);
+
+        console.log(hero1.city);
+        console.log(hero2.city);
+
+        Function.prototype.username = "vasanthi";
+
+        function myFun(a,b,c){
+
+        };
+        console.log(myFun.length);
+        console.log(myFun.username);
+         */
+
+        var Hero = function(fn, ln){
+            this.fname = fn;
+            this.lname = ln;
+            var secret = "My Secret";
+            this.title = "Batman";
+        };
+        Hero.prototype.fullname = function(){
+            return this.fname+" "+this.lname
+        };
+
+
+        var hero1 = new Hero("Bruce","Wayne");
+        console.log(hero1.fullname());
+
+        var hero2 = new Hero("Peter","Parker");
+        console.log(hero2.fullname());
+
+        console.log(hero1.fullname === hero2.fullname);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

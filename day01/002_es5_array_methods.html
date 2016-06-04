@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr = [2,7,3,9,1,5];
+
+       //  arr.forEach(function(value in the array, index, array itself){
+        /*
+
+        arr.forEach(function(val, idx, arr){
+            // console.log(val);
+            // console.log(arr[idx]);
+            arr[idx] =  arr[idx]+100;
+        });
+        console.log(arr);
+
+         */
+
+       var tot =  arr.reduceRight(function(initialVal, val){
+           console.log(val);
+           return initialVal+val;
+        }, 0 );
+
+        console.log(tot);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

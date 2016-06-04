@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+    <script>
+
+        function myFun(){
+           // console.log(arguments.length);
+           /* for(var i = 0 ; i < arguments.length; i++){
+              console.log(arguments[i]);
+            };*/
+            console.log(myFun.caller.name);
+    };
+
+    function fun1(){
+     myFun(1,2,3);
+    } ;
+
+    function fun2(){
+    myFun(9,8,7);
+    }
+    fun2();
+    /*myFun(2,3,4);
+    console.log(window.myFun.length);*/
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
