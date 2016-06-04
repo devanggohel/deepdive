@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+       function init() {
+           for(var i = 0 ; i < 100000; i++){
+               console.log(i);
+           };
+       };
+    </script>
+</head>
+<body onload="init()">
+    <h1>Hello World</h1>
+</body>
+</html>
+
+=========================================
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+       function init() {
+          /* for(var i = 0 ; i < 100000; i++){
+               console.log(i);
+           };*/
+           alert("hi")
+       //  console.log(document.getElementsByTagName("body")[0].firstChild.nextSibling.tagName);
+       //  console.log(document.getElementsByTagName("ul")[0].childNodes.length);
+         console.log(document.getElementsByTagName("ul")[0].children.length);
+       };
+       // window.onload = init();
+      window.onload = init;
+    </script>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+        <li>List Item 5</li>
+    </ul>
+</body>
+</html>

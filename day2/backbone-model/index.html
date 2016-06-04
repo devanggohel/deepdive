@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var Hero = Backbone.Model.extend({
+			url : "/hero"
+		});
+		var hero = new Hero();
+		$(function(){
+			$("#btn1").on("click", function(){
+				
+				hero.set({
+					fName : $("#fn").val(),
+					lName : $("#ln").val()
+				});
+				console.log(hero.toJSON())
+			});
+			$("#btn2").on("click", function(){
+				hero.save();
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="text" id="fn" />
+	<br/>
+	<input type="text" id="ln" />
+	<br/>
+	<button id="btn1">Submit</button>
+	<br/>
+	<button id="btn2">Save On Server</button>
+</body>
+</html>

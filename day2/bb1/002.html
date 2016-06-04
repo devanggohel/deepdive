@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Introduction to Backbone</title>
+	<script src="lib/jquery-1.12.1.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		$(function(){
+			var Company = Backbone.Model.extend({});
+			
+			
+			var comp1 = new Company({
+				defaults :{
+					
+				name : "SD Corner",
+				headCount : 200,
+				city : "Bangalore",
+				},
+				getEmployeeCount : function(){
+					console.log(this.get("headCount"));
+				},
+				setEmployeeCount : function(){
+					// this.get(headCount += 1;
+				}
+			});
+			
+			comp1.on("change:headCount", function(){
+				console.log("changed");
+				console.log(comp1.get("headCount"))
+			})
+			
+			
+			$("#empBtn").on("click", function(){
+				// comp1.setEmployeeCount();
+				// comp1.getEmployeeCount();
+				var count = comp1.get("headCount");
+				comp1.set("headCount",count+=1);
+			})
+			$("#cityBtn").on("click", function(){
+				comp1.set("city","pune");
+			})
+			$("#hasCityBtn").on("click", function(){
+				console.log(comp1.has("city"));
+			})
+			$("#removeCityBtn").on("click", function(){
+				comp1.unset("city");
+			})
+		});
+	</script>
+</head>
+<body>
+	<button id="empBtn">Add Employee</button>
+	<button id="cityBtn">Change City </button>
+	<button id="hasCityBtn">Has City </button>
+	<button id="removeCityBtn">Remove City </button>
+</body>
+</html>
+
+
+<!---
+
+,
+				getEmployeeCount : function(){
+					console.log()
+				},
+				setEmployeeCount : function(){
+					
+				}
+
+-->

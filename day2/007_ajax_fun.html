@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+        XMLHttpRequest
+
+        readyState 0-1-2-3-4
+        responseText
+        responseXML
+        status 200
+        statusText
+
+        open()
+        send()
+        abort()
+
+        onreadystatechange
+
+    -->
+    <style>
+        .box{
+            width: 400px;
+            height: 150px;
+            background-color: silver;
+            border: 1px solid gray;
+            margin: auto;
+            overflow: auto;
+        }
+        button{
+            width: 400px;
+            display: block;
+            margin: 10px auto ;
+        }
+    </style>
+    <script>
+        var xhr = new XMLHttpRequest();
+           // xhr.onreadystatechange = changeHandler;
+            xhr.addEventListener("readystatechange", changeHandler);
+
+        function changeHandler(event){
+
+            if(event.target.readyState == 4 && event.target.status == 200){
+                document.querySelector(".box").innerHTML = event.target.responseText;
+            }else{
+                console.log(event.target.statusText)
+            };
+
+        };
+
+        window.onload = function () {
+            document.querySelector("button").addEventListener("click", clickHandler)
+        };
+
+        function clickHandler() {
+            xhr.open("GET","data/data.txt",false);
+            xhr.send();
+        }
+
+    </script>
+</head>
+<body>
+<button>get data</button>
+<div class="box"></div>
+</body>
+</html>

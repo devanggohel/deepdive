@@ -1,0 +1,87 @@
+coffee -c one.coffee
+coffee -cw one.coffee
+
+===============================================
+alert "Hello World"
+-----------------------------------------------
+user = "vijay"
+-----------------------------------------------
+num = 2
+-----------------------------------------------
+arr = [1,2,3,4,5]
+-----------------------------------------------
+arr1 = [0..9] # includes the last number
+-----------------------------------------------
+arr1 = [0...9] # excludes the last number
+-----------------------------------------------
+person = 
+	firstName : "Bruce"
+	lastName : "Wayne"
+	city : "Gothem"
+	
+alert person.firstName
+-----------------------------------------------
+# i am coffee script comment
+### 
+hello i am a javascript comment
+###
+-----------------------------------------------
+arr = [9...0]
+-----------------------------------------------
+add = -> 2+3
+add()
+-----------------------------------------------
+add = (num1, num2) ->
+	x = num1
+	y = num2
+	x+y
+add 2,3 
+
+console.log "hello there"
+console.log add 4,5
+-----------------------------------------------
+window.onload = ->
+	alert "window loaded"
+-----------------------------------------------
+window.addEventListener 'load', ->
+	alert "document loaded"
+-----------------------------------------------
+window.addEventListener 'load', ->
+	document.getElementById("btn").addEventListener "click", -> 
+		alert "you clicked me"
+-----------------------------------------------
+window.addEventListener "load", ->
+	document.getElementById("btn").addEventListener "click", ->
+		elm = document.createElement "div"
+		elm.setAttribute "class","box"
+		document.getElementsByTagName("body")[0].appendChild elm
+-----------------------------------------------
+user = "female"
+if user is 'male' 
+	alert "user is male"
+else 
+	alert "user is female"
+-----------------------------------------------
+user = "female"
+city = "bangalore"
+if user is 'male' and city is 'pune'
+	alert "user is male and #{city} is pune"
+else 
+	alert "user is female and #{city} is pune"
+-----------------------------------------------
+$ -> 
+	$("h1:first").append "hello world"
+	return
+-----------------------------------------------
+$ ->
+	$("h1")
+	.css "border","2px solid red" 
+	.text "Hello From Coffee Script"
+-----------------------------------------------
+$ ->
+	$("h1")
+	.css "border","2px solid red" 
+	.text "Hello From Coffee Script"
+	.on "click", ->
+		alert "you clicked me"
+-----------------------------------------------

@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function windowload() {
+           console.log("window load")
+        };
+        function domcontentload() {
+           console.log("DOM Content Loaded")
+        };
+        function bodyload() {
+           console.log("Body Loaded")
+        };
+        /*
+        */
+        //  window.onload = windowload;// non w3c compliant
+        //  window.onload = windowload;
+        window.addEventListener("load", windowload); // w3c compliant code
+        document.addEventListener("DOMContentLoaded", domcontentload);
+    </script>
+</head>
+<body onload="bodyload()">
+    <h1>Hello World</h1>
+    <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+        <li>List Item 5</li>
+    </ul>
+</body>
+</html>

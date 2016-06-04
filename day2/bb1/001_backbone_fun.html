@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Backbone Fun</title>
+	<script src="lib/jquery-1.12.1.js"></script>
+	<script src="lib/underscore.js"></script>
+	<script src="lib/backbone.js"></script>
+	<script>
+		var Company = Backbone.Model.extend({
+				defaults : {
+					name : "My Comp",
+					headcount : 10
+				},
+				getHeadCount : function(){
+					return this.get("headcount");
+				},
+				setHeadCount : function(){
+					var count = this.get("headcount");
+					this.set("headcount",count+=1);
+				}
+		});
+		// console.log(comp1.get("name"));
+		// comp1.set("name","FIC");
+		// console.log(comp1.get("name"));
+		var comp1 = new Company();
+			console.log(comp1.getHeadCount());
+		
+		
+		/*
+		 */
+		window.onload = function(){
+			var comp1 = new Company();
+			document.querySelectorAll("button")[0].addEventListener("click", function(){
+				document.getElementById("log").innerHTML = comp1.getHeadCount();
+			});
+			document.querySelectorAll("button")[1].addEventListener("click", function(){
+				comp1.setHeadCount();
+				document.getElementById("log").innerHTML = comp1.getHeadCount();
+			});
+		};
+	</script>
+</head>
+<body>
+	<button>Show Employee Count</button>
+	<button>Add Employee Count</button>
+	<hr/>
+	<h1 id="log"></h1>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

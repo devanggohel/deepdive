@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="template/myapp" id="temp">
+        <div class='product'>
+            <h1 class='ptitle'>$$ title $$</h1>
+            <img src='!! photo !!!' class='pphoto'>
+            <h4 class='pphone'>{{ phone# }}</h4>
+            <div class='pdetail'>{{ hdetail }}</div>
+        </div>
+    </script>
+    <style>
+        .box{
+            width: 900px;
+            height: 400px;
+            background-color: silver;
+            border: 1px solid gray;
+            margin: auto;
+            overflow: auto;
+        }
+        button{
+            width: 400px;
+            display: block;
+            margin: 10px auto ;
+        }
+        .product{
+            width: 200px;
+            height:400px;
+            background-color: #333;
+            margin: 5px;
+            float: left;
+        }
+        .ptitle{
+            color: azure;
+            font-family: Arial;
+            text-align: center;
+            margin: 4px;
+        }
+        .pdetail{
+            height: 100px;
+            overflow: auto;
+            background-color: azure;
+            color: #333333;
+            font-family: Arial;
+            text-align: justify;
+            padding: 5px;
+            font-size: 12px;
+        }
+        .pphone{
+            margin: 4px;
+            color: azure;
+            font-family: Arial;
+            text-align: center;
+            background-color: dimgray;
+        }
+        .pphoto{
+            width: 100%;
+        }
+    </style>
+    <script>
+        var xhr = new XMLHttpRequest();
+            xhr.addEventListener("readystatechange", changeHandler);
+
+        function changeHandler(event){
+
+            if(event.target.readyState == 4 && event.target.status == 200){
+                var data = JSON.parse(event.target.responseText);
+                var box = document.querySelector(".box");
+                data.heroes.forEach(function(val,idx,arr){
+                  //  box.innerHTML += "<div class='product'><h1 class='ptitle'>"+val.hName+"</h1><img src='"+val.hPhoto+"' class='pphoto'><h4 class='pphone'>"+val.hPhone+"</h4><div class='pdetail'>"+val.hDetails+"</div></div>"
+                    box.innerHTML += document.querySelector("#temp").innerHTML
+                                                                            .replace("$$ title $$", val.hName)
+                                                                            .replace("!! photo !!!", val.hPhoto)
+                                                                            .replace("{{ phone# }}",val.hPhone)
+                                                                            .replace("{{ hdetail }}",val.hDetails);
+                })
+               // document.querySelector(".box").innerHTML = data.heroes[0].hName;
+            }else{
+                console.log(event.target.statusText)
+            };
+
+        };
+
+        window.onload = function () {
+            document.querySelector("button").addEventListener("click", clickHandler)
+        };
+
+        function clickHandler() {
+            xhr.open("GET","/herodata");
+            xhr.send();
+        }
+
+    </script>
+</head>
+<body>
+<button>get data</button>
+<div class="box"></div>
+
+</body>
+</html>

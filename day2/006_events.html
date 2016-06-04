@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function clickHandlerIE() {
+           var event = window.event;
+           alert(event.srcElement.firstChild.nodeValue);
+        }
+        function clickHandler(event) {
+            /*
+            event.type;
+            event.target;
+            event.currentTarget;
+             */
+
+           alert(event.target.innerHTML);
+        }
+        window.onload = function () {
+            var btn = document.getElementsByTagName("button");
+            if(document.addEventListener){
+                for(var i = 0; i < btn.length ; i++){
+                    btn[i].addEventListener("click", clickHandler)
+                }
+            }else{
+                for(var i = 0; i < btn.length ; i++){
+                    btn[i].attachEvent("onclick", clickHandlerIE)
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <button>click me 1</button>
+        <button>click me 2</button>
+        <button>click me 3</button>
+        <button>click me 4</button>
+    </div>
+</body>
+</html>
